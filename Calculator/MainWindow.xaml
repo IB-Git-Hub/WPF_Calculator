@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="IB Calculator" Height="500" Width="300">
     <Grid>
         <StackPanel>
             <Menu>
@@ -17,99 +17,99 @@
                         Text="result"
                      HorizontalAlignment="Center"
                     VerticalAlignment="Center"/>
-            <Button Content="clear" Click="Clear_Click" />
+            <Button Content="C" Click="OnScreenKeyDown" />
             
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="seven"
                         FontSize="24"
-                        Margin="2" Click="click_number">
+                        Margin="2" Click="OnScreenKeyDown">
                     7
                 </Button>
                 <Button x:Name="eight"
                         FontSize="24"
-                        Margin="2" Click="click_number">
+                        Margin="2" Click="OnScreenKeyDown">
                     8
                 </Button>
                 <Button x:Name="nine"
                         FontSize="24"
-                        Margin="2" Click="click_number">
+                        Margin="2" Click="OnScreenKeyDown">
                     9
                 </Button>
                 <Button x:Name="devide"
                          FontSize="24"
-                           Margin="2" Click="click_opiration">
+                           Margin="2" Click="OnScreenKeyDown">
                     /
                 </Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="four"
                         FontSize="24"
-                Margin="2" Click="click_number">
+                Margin="2" Click="OnScreenKeyDown">
                     4
                 </Button>
                 <Button x:Name="five"
                         FontSize="24"
-                Margin="2" Click="click_number">
+                Margin="2" Click="OnScreenKeyDown">
                     5
                 </Button>
                 <Button x:Name="six"
                         FontSize="24"
-                        Margin="2" Click="click_number">
+                        Margin="2" Click="OnScreenKeyDown">
                     6
                 </Button>
                 <Button x:Name="multiply"
                         FontSize="24"
-                        Margin="2" Click="click_opiration">
+                        Margin="2" Click="OnScreenKeyDown">
                     X
                 </Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="one"
                         FontSize="24"
-                        Margin="2" Click="click_number">
+                        Margin="2" Click="OnScreenKeyDown">
                     1
                 </Button>
                 <Button x:Name="tow"
                         FontSize="24"
-                        Margin="2" Click="click_number">
+                        Margin="2" Click="OnScreenKeyDown">
                     2
                 </Button>
                 <Button x:Name="three"
                          FontSize="24"
-                        Margin="2" Click="click_number">
+                        Margin="2" Click="OnScreenKeyDown">
                     3
                 </Button>
                 <Button x:Name="minus"
                         FontSize="24"
-                         Margin="2" Click="click_opiration">
+                         Margin="2" Click="OnScreenKeyDown">
                     -
                 </Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="del"
                         FontSize="24"
-                    Margin="2" Click="del_Click">
-                    d
+                    Margin="2" Click="OnScreenKeyDown">
+                    &lt;-
                 </Button>
                 <Button x:Name="zero"
                         FontSize="24"
-                        Margin="2" Click="click_number">
+                        Margin="2" Click="OnScreenKeyDown">
                     0
                 </Button>
                 <Button x:Name="dot"
                         FontSize="24"
-                        Margin="2" Click="dot_Click">
+                        Margin="2" Click="OnScreenKeyDown">
                     .
                 </Button>
                 <Button x:Name="plus"
                         FontSize="24"
-                        Margin="2" Click="click_opiration">
+                        Margin="2" Click="OnScreenKeyDown">
                     +
                 </Button>
             </StackPanel>
             <Button x:Name="equal"
                     FontSize="24"
-                     Margin="2" Click="equal_Click" >
+                     Margin="2" Click="OnScreenKeyDown" >
                 =
             </Button>
             <TextBlock

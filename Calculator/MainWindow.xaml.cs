@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Reflection;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,75 +27,108 @@ namespace Calculator
         {
             InitializeComponent();
             text_result.Text = "0";
+            this.KeyDown += new KeyEventHandler(OnButtonKeyDown);
         }
 
-        private void click_number(object sender , RoutedEventArgs e)
+        private void OnButtonKeyDown(object sender, KeyEventArgs e)
         {
-            
-            string digit = (sender as Button).Content.ToString();
-            if (text_result.Text != "0" || digit != "0")
+            // Check if the key pressed is a number
+            if (e.Key >= Key.D0 && e.Key <= Key.D9)
             {
-                current_input += digit;
-                text_result.Text = current_input;
+                int number = (int)e.Key - (int)Key.D0;
+                numbering(number.ToString());
             }
-            
+            // Check if the key pressed is a number from the number pad
+            else if (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+            {
+                int number = (int)e.Key - (int)Key.NumPad0;
+                numbering(number.ToString());
+            }
+            // Handle other keys like operations, Enter, Backspace, etc.
+            else if (e.Key == Key.Add)
+            {
+                //Display.Text += "+";
+            }
+            else if (e.Key == Key.Subtract)
+            {
+                //Display.Text += "-";
+            }
+            else if (e.Key == Key.Multiply)
+            {
+                //Display.Text += "*";
+            }
+            else if (e.Key == Key.Divide)
+            {
+                //Display.Text += "/";
+            }
+            else if (e.Key == Key.Enter)
+            {
+                // Evaluate the expression
+               // EvaluateExpression();
+            }
+            else if (e.Key == Key.Back)
+            {
+                //if (Display.Text.Length > 0)
+               // {
+               //     Display.Text = Display.Text.Substring(0, Display.Text.Length - 1);
+               //}
+
+            }
         }
 
-        private void click_opiration(object sender, RoutedEventArgs e)
+        private void OnScreenKeyDown(object sender, RoutedEventArgs e)
         {
-            
-            bool c_state = string.IsNullOrEmpty(current_input);
-            
-            
-            if (f_numb == 0 && !c_state)
+            String Key_screen = (sender as Button).Content.ToString();
+
+            if (IsNumberBetween0And9(Key_screen))
             {
-               
-                f_numb = double.Parse(current_input);
-                current_input = string.Empty;
-                string op = (sender as Button).Content.ToString();
-                operation = op;
-                
+                numbering(Key_screen);
+            }
+            else if(Key_screen == "C")
+            {
+                clear();
+            }
+            else if(Key_screen == "<-")
+            {
+                delete();
+            }
+            else if(Key_screen == ".")
+            {
+                dot_point();
+            }
+            else if(Key_screen == "=")
+            {
+                equal_result();
             }
             else
             {
-                if (f_numb != 0 && !c_state)
-                {
-                    s_numb = double.Parse(current_input);
-                    switch (operation)
-                    {
-                        case "+":
-                        {
-                            f_numb += s_numb;
-                            break;
-                        }
-                        case "-":
-                        {
-                            f_numb -= s_numb;
-                            break;
-                        }
-                    }
-                    string op = (sender as Button).Content.ToString();
-                    operation = op;
-                    current_input = string.Empty;
-                    test_text.Text = f_numb.ToString();
-                    text_result.Text = f_numb.ToString();
-                }
+                operation_function(Key_screen);
             }
-            
         }
 
-        private void equal_Click(object sender, RoutedEventArgs e)
+        private void numbering(string number)
+        {
+
+            if (text_result.Text != "0" || number != "0")
+            {
+                current_input += number;
+                text_result.Text = current_input;
+            }
+
+        }
+        private void operation_function(string op)
         {
             bool c_state = string.IsNullOrEmpty(current_input);
-
-            if(f_numb != 0 && c_state)
+            if (f_numb == 0 && !c_state)
             {
-                result_numb = f_numb;
 
-                text_result.Text = result_numb.ToString();
-                f_numb = 0; s_numb = 0; current_input = text_result.Text;
-                operation = string.Empty;
-            }else
+                f_numb = double.Parse(current_input);
+                current_input = string.Empty;
+
+                operation = op;
+
+            }
+            else
             {
                 if (f_numb != 0 && !c_state)
                 {
@@ -111,47 +145,122 @@ namespace Calculator
                                 f_numb -= s_numb;
                                 break;
                             }
+                        case "X":
+                            {
+                                f_numb *= s_numb;
+                                break;
+                            }
+                        case "/":
+                            {
+                                f_numb /= s_numb;
+                                break;
+                            }
                     }
-                    
-                    operation = string.Empty;
-                    result_numb = f_numb;
-                    text_result.Text = result_numb.ToString() ;
-                    test_text.Text = result_numb.ToString();
-                    f_numb = 0; s_numb = 0; current_input = text_result.Text;
+
+                    operation = op;
+                    current_input = string.Empty;
+                    test_text.Text = f_numb.ToString();
+                    text_result.Text = f_numb.ToString();
                 }
             }
         }
 
-        private void del_Click(object sender, RoutedEventArgs e)
-        {
-            if(text_result.Text.Length == 1)
-            {
-                text_result.Text = "0";
-            }else
-            {
-                string temp_s =  text_result.Text.Remove(text_result.Text.Length - 1);
-                text_result.Text = temp_s;
-            }
-        }
+        
 
-        private void dot_Click(object sender, RoutedEventArgs e)
-        {
-            if(!text_result.Text.Contains("."))
-            {
-                current_input = text_result.Text + ".";
-                
-                text_result.Text = current_input;
-            }
-            
-        }
-
-        private void Clear_Click(object sender, RoutedEventArgs e)
+        private void clear()
         {
             current_input = string.Empty;
             operation = string.Empty;
             f_numb = 0;
             s_numb = 0;
             text_result.Text = string.Empty;
+        }
+        private void delete() 
+        {
+            if (text_result.Text.Length == 1)
+            {
+                text_result.Text = "0";
+                current_input = string.Empty;
+            }
+            else
+            {
+                current_input = text_result.Text.Remove(text_result.Text.Length - 1);
+                text_result.Text = current_input;
+            }
+        }
+
+        private void dot_point()
+        {
+            if (!text_result.Text.Contains("."))
+            {
+                current_input = text_result.Text + ".";
+
+                text_result.Text = current_input;
+            }
+        }
+
+        private void equal_result()
+        {
+            bool c_state = string.IsNullOrEmpty(current_input);
+
+            if (f_numb != 0 && c_state)
+            {
+                result_numb = f_numb;
+
+                text_result.Text = result_numb.ToString();
+                f_numb = 0; s_numb = 0; current_input = text_result.Text;
+                operation = string.Empty;
+            }
+            else
+            {
+                if (f_numb != 0 && !c_state)
+                {
+                    s_numb = double.Parse(current_input);
+                    switch (operation)
+                    {
+                        case "+":
+                            {
+                                f_numb += s_numb;
+                                break;
+                            }
+                        case "-":
+                            {
+                                f_numb -= s_numb;
+                                break;
+                            }
+                        case "X":
+                            {
+                                f_numb *= s_numb;
+                                break;
+                            }
+                        case "/":
+                            {
+                                f_numb /= s_numb;
+                                break;
+                            }
+                    }
+
+                    operation = string.Empty;
+                    result_numb = f_numb;
+                    text_result.Text = result_numb.ToString();
+                    test_text.Text = result_numb.ToString();
+                    f_numb = 0; s_numb = 0; current_input = text_result.Text;
+                }
+            }
+        }
+
+        bool IsNumberBetween0And9(string input)
+        {
+            // Try to parse the string as an integer
+            if (int.TryParse(input, out int number))
+            {
+                // Check if the number is between 0 and 9
+                if (number >= 0 && number <= 9)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
