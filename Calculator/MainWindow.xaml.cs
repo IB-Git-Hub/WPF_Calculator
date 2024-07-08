@@ -136,10 +136,11 @@ namespace Calculator
 
         private void dot_Click(object sender, RoutedEventArgs e)
         {
-            if(!text_result.Text.Contains('.'))
+            if(!text_result.Text.Contains("."))
             {
-                string temp_s = text_result.Text + ".";
-                text_result.Text = temp_s;
+                current_input = text_result.Text + ".";
+                
+                text_result.Text = current_input;
             }
             
         }

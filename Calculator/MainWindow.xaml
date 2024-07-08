@@ -98,7 +98,7 @@
                 </Button>
                 <Button x:Name="dot"
                         FontSize="24"
-                        Margin="2" Click="click_number">
+                        Margin="2" Click="dot_Click">
                     .
                 </Button>
                 <Button x:Name="plus"
