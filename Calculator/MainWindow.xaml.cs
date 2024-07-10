@@ -28,10 +28,12 @@ namespace Calculator
             InitializeComponent();
             text_result.Text = "0";
             this.KeyDown += new KeyEventHandler(OnButtonKeyDown);
+           MainGrid.Focus(); // Set initial focus to the Grid
         }
 
         private void OnButtonKeyDown(object sender, KeyEventArgs e)
         {
+            
             // Check if the key pressed is a number
             if (e.Key >= Key.D0 && e.Key <= Key.D9)
             {
@@ -62,9 +64,11 @@ namespace Calculator
             {
                 operation_function("/");
             }
-            else if (e.Key == Key.Enter)
+            else if (e.Key == Key.Enter || e.Key == Key.Return)
             {
+                
                 equal_result();
+                
             }
             else if (e.Key == Key.Back)
             {
@@ -101,6 +105,11 @@ namespace Calculator
             {
                 operation_function(Key_screen);
             }
+            (sender as Button).Focusable = false;
+            Keyboard.ClearFocus();
+            MainGrid.Focus();
+
+
         }
 
         private void numbering(string number)
