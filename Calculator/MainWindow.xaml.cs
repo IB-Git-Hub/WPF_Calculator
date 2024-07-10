@@ -48,30 +48,27 @@ namespace Calculator
             else if (e.Key == Key.Add)
             {
                 //Display.Text += "+";
+                operation_function("+");
             }
             else if (e.Key == Key.Subtract)
             {
-                //Display.Text += "-";
+                operation_function("-");
             }
             else if (e.Key == Key.Multiply)
             {
-                //Display.Text += "*";
+                operation_function("X");
             }
             else if (e.Key == Key.Divide)
             {
-                //Display.Text += "/";
+                operation_function("/");
             }
             else if (e.Key == Key.Enter)
             {
-                // Evaluate the expression
-               // EvaluateExpression();
+                equal_result();
             }
             else if (e.Key == Key.Back)
             {
-                //if (Display.Text.Length > 0)
-               // {
-               //     Display.Text = Display.Text.Substring(0, Display.Text.Length - 1);
-               //}
+                delete();
 
             }
         }

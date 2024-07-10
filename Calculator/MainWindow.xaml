@@ -5,22 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="IB Calculator" Height="500" Width="300">
+        Title="IB Calculator" Height="450" Width="280">
     <Grid>
         <StackPanel>
-            <Menu>
-                <MenuItem>
-                    
+            <Menu FontSize="16" Padding="10" Margin="5" >
+                <MenuItem Header="_File" Padding="10">
+                <MenuItem Header="standard"/>
                 </MenuItem>
             </Menu>
             <TextBlock Name="text_result"
                         Text="result"
+                       FontSize="32"
                      HorizontalAlignment="Center"
                     VerticalAlignment="Center"/>
             <Button Content="C" Click="OnScreenKeyDown" />
             
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="seven"
+                <Button 
                         FontSize="24"
                         Margin="2" Click="OnScreenKeyDown">
                     7
