@@ -22,7 +22,7 @@ namespace Calculator
         private string current_input = string.Empty;
         private string operation = string.Empty;
         private double f_numb = 0, s_numb = 0, result_numb = 0;
-        private bool op_state = false;
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -115,6 +115,7 @@ namespace Calculator
         }
         private void operation_function(string op)
         {
+            
             bool c_state = string.IsNullOrEmpty(current_input);
             if (f_numb == 0 && !c_state)
             {
@@ -125,9 +126,7 @@ namespace Calculator
                 operation = op;
 
             }
-            else
-            {
-                if (f_numb != 0 && !c_state)
+            else if (f_numb != 0 && !c_state)
                 {
                     s_numb = double.Parse(current_input);
                     switch (operation)
@@ -156,10 +155,14 @@ namespace Calculator
 
                     operation = op;
                     current_input = string.Empty;
-                    test_text.Text = f_numb.ToString();
                     text_result.Text = f_numb.ToString();
                 }
+            else if (f_numb != 0 && c_state)
+            {
+                operation = op;
             }
+
+
         }
 
         
@@ -240,7 +243,6 @@ namespace Calculator
                     operation = string.Empty;
                     result_numb = f_numb;
                     text_result.Text = result_numb.ToString();
-                    test_text.Text = result_numb.ToString();
                     f_numb = 0; s_numb = 0; current_input = text_result.Text;
                 }
             }

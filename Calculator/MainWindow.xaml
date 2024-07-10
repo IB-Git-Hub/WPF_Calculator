@@ -5,118 +5,183 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="IB Calculator" Height="450" Width="280">
+        Title="IB Calculator" Height="450" Width="280" ResizeMode="NoResize">
     <Grid>
-        <StackPanel>
-            <Menu FontSize="16" Padding="10" Margin="5" >
-                <MenuItem Header="_File" Padding="10">
-                <MenuItem Header="standard"/>
-                </MenuItem>
-            </Menu>
-            <TextBlock Name="text_result"
-                        Text="result"
-                       FontSize="32"
-                     HorizontalAlignment="Center"
-                    VerticalAlignment="Center"/>
-            <Button Content="C" Click="OnScreenKeyDown" />
-            
-            <StackPanel Orientation="Horizontal">
-                <Button 
-                        FontSize="24"
-                        Margin="2" Click="OnScreenKeyDown">
-                    7
-                </Button>
-                <Button x:Name="eight"
-                        FontSize="24"
-                        Margin="2" Click="OnScreenKeyDown">
-                    8
-                </Button>
-                <Button x:Name="nine"
-                        FontSize="24"
-                        Margin="2" Click="OnScreenKeyDown">
-                    9
-                </Button>
-                <Button x:Name="devide"
-                         FontSize="24"
-                           Margin="2" Click="OnScreenKeyDown">
-                    /
-                </Button>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="four"
-                        FontSize="24"
-                Margin="2" Click="OnScreenKeyDown">
-                    4
-                </Button>
-                <Button x:Name="five"
-                        FontSize="24"
-                Margin="2" Click="OnScreenKeyDown">
-                    5
-                </Button>
-                <Button x:Name="six"
-                        FontSize="24"
-                        Margin="2" Click="OnScreenKeyDown">
-                    6
-                </Button>
-                <Button x:Name="multiply"
-                        FontSize="24"
-                        Margin="2" Click="OnScreenKeyDown">
-                    X
-                </Button>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="one"
-                        FontSize="24"
-                        Margin="2" Click="OnScreenKeyDown">
-                    1
-                </Button>
-                <Button x:Name="tow"
-                        FontSize="24"
-                        Margin="2" Click="OnScreenKeyDown">
-                    2
-                </Button>
-                <Button x:Name="three"
-                         FontSize="24"
-                        Margin="2" Click="OnScreenKeyDown">
-                    3
-                </Button>
-                <Button x:Name="minus"
-                        FontSize="24"
-                         Margin="2" Click="OnScreenKeyDown">
-                    -
-                </Button>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="del"
-                        FontSize="24"
-                    Margin="2" Click="OnScreenKeyDown">
-                    &lt;-
-                </Button>
-                <Button x:Name="zero"
-                        FontSize="24"
-                        Margin="2" Click="OnScreenKeyDown">
-                    0
-                </Button>
-                <Button x:Name="dot"
-                        FontSize="24"
-                        Margin="2" Click="OnScreenKeyDown">
-                    .
-                </Button>
-                <Button x:Name="plus"
-                        FontSize="24"
-                        Margin="2" Click="OnScreenKeyDown">
-                    +
-                </Button>
-            </StackPanel>
-            <Button x:Name="equal"
-                    FontSize="24"
-                     Margin="2" Click="OnScreenKeyDown" >
-                =
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="1"
+                   Name="text_result"
+                   Text="0"
+                   FontSize="32"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Margin="5"/>
+
+
+        <Button FontSize="24"
+                    Margin="2" 
+                Content="C" 
+                Click="OnScreenKeyDown" 
+                Grid.Row="2"/>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button FontSize="24"
+                    Margin="2" 
+                    Click="OnScreenKeyDown"
+                    Grid.Column="0" Grid.Row="0">
+                7
             </Button>
-            <TextBlock
-                Name="test_text"
-                FontSize="30"/>
-        </StackPanel>
+            <Button FontSize="24"
+                    Margin="2" 
+                    Click="OnScreenKeyDown"
+                    Grid.Column="1" Grid.Row="0">
+                8
+            </Button>
+            <Button 
+                    FontSize="24"
+                    Margin="2" Click="OnScreenKeyDown"
+                    Grid.Column="2" Grid.Row="0">
+                9
+            </Button>
+            <Button 
+                    FontSize="24"
+                    Margin="2" Click="OnScreenKeyDown"
+                    Grid.Column="3" Grid.Row="0">
+                /
+            </Button>
+
+        </Grid>
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button FontSize="24"
+            Margin="2" 
+            Click="OnScreenKeyDown"
+            Grid.Column="0" Grid.Row="0">
+                4
+            </Button>
+            <Button FontSize="24"
+            Margin="2" 
+            Click="OnScreenKeyDown"
+            Grid.Column="1" Grid.Row="0">
+                5
+            </Button>
+            <Button 
+            FontSize="24"
+            Margin="2" Click="OnScreenKeyDown"
+            Grid.Column="2" Grid.Row="0">
+                6
+            </Button>
+            <Button 
+            FontSize="24"
+            Margin="2" Click="OnScreenKeyDown"
+            Grid.Column="3" Grid.Row="0">
+                X
+            </Button>
+
+        </Grid>
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button FontSize="24"
+    Margin="2" 
+    Click="OnScreenKeyDown"
+    Grid.Column="0" Grid.Row="0">
+                1
+            </Button>
+            <Button FontSize="24"
+    Margin="2" 
+    Click="OnScreenKeyDown"
+    Grid.Column="1" Grid.Row="0">
+                2
+            </Button>
+            <Button 
+    FontSize="24"
+    Margin="2" Click="OnScreenKeyDown"
+    Grid.Column="2" Grid.Row="0">
+                3
+            </Button>
+            <Button 
+    FontSize="24"
+    Margin="2" Click="OnScreenKeyDown"
+    Grid.Column="3" Grid.Row="0">
+                -
+            </Button>
+
+        </Grid>
+
+    
+    <Grid Grid.Row="6">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button 
+         FontSize="24"
+            Margin="2" Click="OnScreenKeyDown"
+            Grid.Column="0" Grid.Row="0">
+            &lt;-
+        </Button>
+        <Button 
+         FontSize="24"
+         Margin="2" Click="OnScreenKeyDown"
+            Grid.Column="1" Grid.Row="0">
+            0
+        </Button>
+        <Button 
+         FontSize="24"
+         Margin="2" Click="OnScreenKeyDown"
+            Grid.Column="2" Grid.Row="0">
+            .
+        </Button>
+        <Button 
+         FontSize="24"
+         Margin="2" Click="OnScreenKeyDown"
+            Grid.Column="3" Grid.Row="0">
+            +
+        </Button>
+
+        <Grid/>
         
+        </Grid>
+        
+        <Button Grid.Row="7"
+                FontSize="24"
+                Margin="2" 
+                Click="OnScreenKeyDown" >
+            =
+        </Button>
+
+     
+
     </Grid>
 </Window>
