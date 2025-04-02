@@ -39,3 +39,5 @@ C:\Users\IB\Desktop\Calculator\Calculator\obj\Debug\net8.0-windows\Calculator.pd
 C:\Users\IB\Desktop\Calculator\Calculator\obj\Debug\net8.0-windows\Calculator.genruntimeconfig.cache
 C:\Users\IB\Desktop\Calculator\Calculator\obj\Debug\net8.0-windows\ref\Calculator.dll
 C:\Users\IB\Desktop\Calculator\Calculator\obj\Debug\net8.0-windows\Calculator.sourcelink.json
+C:\Users\IB\Desktop\Calculator\Calculator\obj\Debug\net8.0-windows\MVVM\View\Custom Control\C_button.g.cs
+C:\Users\IB\Desktop\Calculator\Calculator\obj\Debug\net8.0-windows\MVVM\View\Custom Control\C_button.baml

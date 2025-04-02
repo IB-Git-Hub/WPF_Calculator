@@ -1,30 +1,23 @@
-﻿using System.ComponentModel;
-using System.Reflection;
-using System.Text;
+﻿using Calculator.MVVM;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Calculator
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     
     public partial class MainWindow : Window
     {
+        private MainViewModel viewModel;
+
         private string current_input = string.Empty;
         private string operation = string.Empty;
         private double f_numb = 0, s_numb = 0, result_numb = 0;
         
         public MainWindow()
         {
+            DataContext = viewModel;
+
             InitializeComponent();
             text_result.Text = "0";
             this.KeyDown += new KeyEventHandler(OnButtonKeyDown);

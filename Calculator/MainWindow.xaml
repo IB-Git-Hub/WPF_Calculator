@@ -8,6 +8,7 @@
         Title="IB Calculator" 
         Height="450" Width="280" 
         ResizeMode="NoResize"
+        d:DataContext="MainViewModel.cs"
         >
     <Grid Name="MainGrid" Focusable="True">
         <Grid.RowDefinitions>
@@ -29,11 +30,12 @@
 
         <TextBlock Grid.Row="1"
                    Name="text_result"
-                   Text="0"
+                   Text="{Binding Showpanel}"
                    FontSize="32"
                    HorizontalAlignment="Right"
                    VerticalAlignment="Center"
-                   Margin="5"/>
+                   Margin="5"
+                   />
 
 
         <Button FontSize="24"
