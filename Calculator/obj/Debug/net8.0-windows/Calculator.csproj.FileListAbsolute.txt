@@ -41,3 +41,4 @@ C:\Users\IB\Desktop\Calculator\Calculator\obj\Debug\net8.0-windows\ref\Calculato
 C:\Users\IB\Desktop\Calculator\Calculator\obj\Debug\net8.0-windows\Calculator.sourcelink.json
 C:\Users\IB\Desktop\Calculator\Calculator\obj\Debug\net8.0-windows\MVVM\View\Custom Control\C_button.g.cs
 C:\Users\IB\Desktop\Calculator\Calculator\obj\Debug\net8.0-windows\MVVM\View\Custom Control\C_button.baml
+C:\Users\IB\Desktop\Calculator\Calculator\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs

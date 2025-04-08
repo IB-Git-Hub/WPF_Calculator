@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace Calculator.MVVM.model
 {
-    public class Relay : ICommand
+    public class Relay 
     {
         public event EventHandler? CanExecuteChanged;
 

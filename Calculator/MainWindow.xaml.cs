@@ -8,7 +8,7 @@ namespace Calculator
     
     public partial class MainWindow : Window
     {
-        private MainViewModel viewModel;
+        //private MainViewModel viewModel;
 
         private string current_input = string.Empty;
         private string operation = string.Empty;
@@ -16,9 +16,11 @@ namespace Calculator
         
         public MainWindow()
         {
-            DataContext = viewModel;
+            
+           // DataContext = viewModel;
 
             InitializeComponent();
+            this.DataContext = new MainViewModel();
             text_result.Text = "0";
             this.KeyDown += new KeyEventHandler(OnButtonKeyDown);
            MainGrid.Focus(); // Set initial focus to the Grid
